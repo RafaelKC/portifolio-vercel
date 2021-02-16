@@ -6,7 +6,9 @@ async function tempo(request, response) {
     const cepResponseJson = await cepResponse.json();
     const bairro = cepResponseJson.bairro;
  
-     response.json({
+    response.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate')
+
+    response.json({
          date: dynamicDate.toGMTString(),
         bairro: bairro,
         });
