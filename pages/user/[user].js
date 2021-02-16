@@ -13,12 +13,11 @@
                 user: 'Felipe'
             },
         }],
-        fallback: 'blocking',
+        fallback: True,
     }
  }
 
  export async function getStaticProps(context) {
-    await delay(5000);
     const user = context.params.user;
 
      return {
@@ -34,7 +33,3 @@ function Users(props) {
 }
 
 export default Users;
-
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-}
